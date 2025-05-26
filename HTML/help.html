@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Community Event Hub</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding-bottom: 80px;
+    }
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x600/007bff/ffffff?text=Community+Events') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 100px 0;
+      margin-bottom: 30px;
+    }
+    .event-card {
+      transition: transform 0.3s;
+      margin-bottom: 20px;
+    }
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .event-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .category-badge {
+      font-size: 0.8rem;
+      margin-right: 5px;
+    }
+    .organizer-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .testimonial-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-calendar-event me-2"></i>
+        Community Events
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </button>
+          <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#registerModal">
+            <i class="bi bi-person-plus"></i> Register
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">Join Our Community Events</h1>
+      <p class="lead mb-5">Discover, participate, and connect with your local community through exciting events</p>
+      <div class="row g-3 justify-content-center">
+        <div class="col-md-8">
+          <div class="input-group">
+            <input type="text" class="form-control form-control-lg" placeholder="Search events...">
+            <button class="btn btn-warning btn-lg" type="button">
+              <i class="bi bi-search"></i> Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Upcoming Events -->
+    <section class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Upcoming Events</h2>
+        <a href="#" class="btn btn-outline-primary">View All</a>
+      </div>
+      
+      <div class="row g-4">
+        <!-- Event Card 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card event-card h-100">
+            <img src="img1.jpg" class="card-img-top event-image" alt="Spring Festival">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="badge bg-success">Festival</span>
+                <small class="text-muted">May 25, 2025</small>
+              </div>
+              <h5 class="card-title">Spring Festival</h5>
+              <p class="card-text">Join us for a day of music, food, and fun activities for the whole family!.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-geo-alt"></i> Central Park</span>
+                <span><i class="bi bi-people"></i> 45 attending</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">
+              <button class="btn btn-primary w-100">Register Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card event-card h-100">
+            <img src="img2.jpg" class="card-img-top event-image" alt="Cleanup Drive">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="badge bg-info">Volunteer</span>
+                <small class="text-muted">June 3, 2025</small>
+              </div>
+              <h5 class="card-title">Community Cleanup Drive</h5>
+              <p class="card-text">Help us keep our neighborhood clean and green. All supplies provided!.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-geo-alt"></i> Riverside Area</span>
+                <span><i class="bi bi-people"></i> 32 attending</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">
+              <button class="btn btn-primary w-100">Volunteer Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card event-card h-100">
+            <img src="img3.jpg" class="card-img-top event-image" alt="Farmers Market">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="badge bg-warning text-dark">Market</span>
+                <small class="text-muted">June 10, 2025</small>
+              </div>
+              <h5 class="card-title">Food Drive</h5>
+              <p class="card-text">"Join our upcoming Food Drive to help fight hunger in our community – donate non-perishable items or volunteer your time to make a difference!"</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-geo-alt"></i> Town Square</span>
+                <span><i class="bi bi-people"></i> 78 attending</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">
+              <button class="btn btn-primary w-100">More Info</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Categories -->
+    <section class="mb-5">
+      <h2 class="mb-4">Browse by Category</h2>
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="card text-white bg-success h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-music-note-beamed display-4 mb-3"></i>
+              <h5 class="card-title">Music & Arts</h5>
+              <p class="card-text">12 events</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card text-white bg-info h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-heart display-4 mb-3"></i>
+              <h5 class="card-title">Volunteer</h5>
+              <p class="card-text">8 events</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card text-white bg-warning h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-basket display-4 mb-3"></i>
+              <h5 class="card-title">Markets</h5>
+              <p class="card-text">6 events</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card text-white bg-danger h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-people display-4 mb-3"></i>
+              <h5 class="card-title">Community</h5>
+              <p class="card-text">15 events</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Event -->
+    <section class="mb-5">
+      <div class="card bg-dark text-white">
+        <img src="https://via.placeholder.com/1200x400/343a40/ffffff?text=Featured+Event" class="card-img" alt="Featured Event" style="height: 400px; object-fit: cover;">
+        <div class="card-img-overlay d-flex align-items-center" style="background-color: rgba(0,0,0,0.5)">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <span class="badge bg-warning text-dark mb-2">Featured Event</span>
+                <h2 class="card-title display-5 fw-bold">Annual Summer Festival</h2>
+                <p class="card-text lead">Join us for the biggest community event of the year with live music, food trucks, games, and fireworks!</p>
+                <p class="card-text"><i class="bi bi-calendar"></i> July 4, 2025 | <i class="bi bi-geo-alt"></i> Riverside Park</p>
+                <button class="btn btn-primary btn-lg mt-3">Get Tickets Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Calendar -->
+    <section class="mb-5">
+      <h2 class="mb-4">Event Calendar</h2>
+      <div class="card">
+        <div class="card-body">
+          <div id="eventCalendar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="mb-5">
+      <h2 class="mb-4">What People Say</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://via.placeholder.com/60/6f42c1/ffffff?text=JS" class="testimonial-img me-3">
+                <div>
+                  <h5 class="mb-0">Jane Smith</h5>
+                  <small class="text-muted">Community Member</small>
+                </div>
+              </div>
+              <p class="card-text">"The spring festival was amazing! My family had so much fun and we met so many wonderful neighbors."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://via.placeholder.com/60/28a745/ffffff?text=MD" class="testimonial-img me-3">
+                <div>
+                  <h5 class="mb-0">Mike Davis</h5>
+                  <small class="text-muted">Volunteer</small>
+                </div>
+              </div>
+              <p class="card-text">"Volunteering at the cleanup drive was rewarding. The organizers made it easy and fun to contribute."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://via.placeholder.com/60/f0ad4e/ffffff?text=AL" class="testimonial-img me-3">
+                <div>
+                  <h5 class="mb-0">Anna Lee</h5>
+                  <small class="text-muted">Local Vendor</small>
+                </div>
+              </div>
+              <p class="card-text">"The farmers market has been great for my small business. The community support is incredible!"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="mb-5 bg-primary text-white p-5 rounded-3">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h2>Want to organize your own event?</h2>
+          <p class="lead mb-0">Join our community of organizers and bring your ideas to life!</p>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+          <button class="btn btn-light btn-lg">Become an Organizer</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Community Events</h5>
+          <p>Bringing neighbors together through meaningful events and activities.</p>
+          <div class="social-icons">
+            <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Home</a></li>
+            <li><a href="#" class="text-white">Events</a></li>
+            <li><a href="#" class="text-white">Volunteer</a></li>
+            <li><a href="#" class="text-white">About Us</a></li>
+            <li><a href="#" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h5>Contact Info</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-geo-alt me-2"></i> 123 Community St, Our Town</li>
+            <li><i class="bi bi-telephone me-2"></i> (123) 456-7890</li>
+            <li><i class="bi bi-envelope me-2"></i> info@communityevents.org</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Newsletter</h5>
+          <p>Subscribe to get updates on upcoming events.</p>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Your email">
+            <button class="btn btn-outline-light" type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4 bg-light">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 Community Events. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white me-3">Privacy Policy</a>
+          <a href="#" class="text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login to Your Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+          <div class="text-center mt-3">
+            <a href="#">Forgot password?</a>
+          </div>
+          <hr>
+          <p class="text-center mb-0">Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Register</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create an Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="registerEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="registerPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+              <label class="form-check-label" for="agreeTerms">I agree to the <a href="#">Terms of Service</a></label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+          </form>
+          <hr>
+          <p class="text-center mb-0">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Initialize calendar (placeholder - would use a library like FullCalendar in real implementation)
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("Community Event Portal initialized");
+      
+      // Example event handling
+      document.querySelectorAll('.event-card .btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          alert('You clicked: ' + this.closest('.card').querySelector('.card-title').textContent);
+        });
+      });
+      
+      // Form submission handling
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Login functionality would be implemented here');
+        bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+      });
+      
+      document.getElementById('registerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Registration functionality would be implemented here');
+        bootstrap.Modal.getInstance(document.getElementById('registerModal')).hide();
+      });
+    });
+  </script>
+</body>
+</html>
